@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="218" pageHeight="400" columnWidth="193" leftMargin="14" rightMargin="11" topMargin="0" bottomMargin="0" uuid="c01e089d-7337-4e97-92bb-13c1d49a5597">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="rent_id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT r.rent_id, r.admin_id, r.car_id, r.nama, r.awal, r.akhir, r.total,
+       c.brand, c.model, c.plat
+FROM rental r
+INNER JOIN tabel_car c ON r.car_id = c.car_id
+INNER JOIN admin a ON r.admin_id = a.admin_id
+WHERE r.rent_id = $P{rent_id}]]>
+	</queryString>
+	<field name="rent_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="admin_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="car_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="awal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="akhir" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="brand" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="model" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="plat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="rent_id">
+		<groupExpression><![CDATA[$F{rent_id}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="51" y="14" width="100" height="20" uuid="89f411da-6444-409d-8752-2750f4927fba"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Rental Mobil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="34" width="100" height="20" uuid="c65d6b2a-46c6-45c4-8d3f-9b7c489a074e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Algerian"/>
+				</textElement>
+				<text><![CDATA[DARENT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="49" width="100" height="20" uuid="64e7488d-131a-4fa8-baa7-af7ee7450a28"/>
+				<textElement textAlignment="Center">
+					<font fontName="Bahnschrift"/>
+				</textElement>
+				<text><![CDATA[Kalimantan Selatan]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="81" width="192" height="1" uuid="6827f2f5-defc-4198-b6d6-5589b136a14d"/>
+			</line>
+			<staticText>
+				<reportElement x="24" y="2" width="72" height="20" uuid="da3dba80-9890-4f64-852a-f97d1a72046d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID Rental :]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<textField>
+				<reportElement x="106" y="22" width="72" height="20" uuid="faf9d302-3e0c-4060-b484-00648016fd69"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{admin_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="42" width="72" height="20" uuid="1f5236ad-1dce-4fdf-9bcf-3c3e527a725f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{car_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="22" width="72" height="20" uuid="76f44683-02a2-4967-b793-2233c038537e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID Admin :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="42" width="72" height="20" uuid="36f35a86-2895-4b2f-b3bf-975ba5f88a68"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID Mobil :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="0" width="72" height="20" uuid="ee9ab8b4-06ac-41ed-87f1-455775622b12"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{rent_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="2" width="72" height="20" uuid="2111af29-b7be-4a2f-afe4-07a2d93f6226"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID Rental :]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="146" splitType="Stretch">
+			<textField>
+				<reportElement x="93" y="83" width="100" height="20" uuid="67950b95-72fa-4a5e-b285-f7b5d31549f8"/>
+				<textFieldExpression><![CDATA[$F{awal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="123" width="100" height="20" uuid="aba5e74c-2569-47b2-9625-ef0676269ba0"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="103" width="100" height="20" uuid="383cb05c-1ae6-4508-b780-3c7c7d180336"/>
+				<textFieldExpression><![CDATA[$F{akhir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="0" width="100" height="20" uuid="90f81e47-fb22-4466-aa3c-061494dce4e5"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="83" width="77" height="20" uuid="e1f8ae19-558d-470e-a92c-9655faa60ed0"/>
+				<text><![CDATA[Tanggal Start :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="103" width="77" height="20" uuid="7e08709f-9458-4b29-9d10-d37c6e873fca"/>
+				<text><![CDATA[Tanggal End :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="123" width="77" height="20" uuid="468c84a3-9ad3-47ae-940b-5c5c86276d99"/>
+				<text><![CDATA[Total Harga :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="0" width="77" height="20" uuid="4d2286f0-0354-4fb1-a2cd-e00f6ecd7df3"/>
+				<text><![CDATA[Nama :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="93" y="20" width="100" height="20" uuid="04efd9cf-0019-472c-a298-43daad1d7a37"/>
+				<textFieldExpression><![CDATA[$F{brand}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="43" width="100" height="20" uuid="99637bcd-8219-4b1a-ba77-7a3d51060fc5"/>
+				<textFieldExpression><![CDATA[$F{model}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="63" width="100" height="20" uuid="a9837b1c-a194-47ec-a5c4-85de9915fadf"/>
+				<textFieldExpression><![CDATA[$F{plat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="63" width="77" height="20" uuid="755e3e5e-ff82-4ab5-b7bc-f823b73dc8a3"/>
+				<text><![CDATA[No. Plat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="43" width="77" height="20" uuid="58b795e0-3bde-4163-a864-ef2461f9870d"/>
+				<text><![CDATA[Model :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="23" width="77" height="20" uuid="00ce58f7-e5c7-42cf-9b12-1d1ce70fca9c"/>
+				<text><![CDATA[Brand :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="142" width="192" height="1" uuid="373ee661-3f0c-4ddf-acd0-1dfe18f3f483"/>
+			</line>
+			<line>
+				<reportElement x="0" y="142" width="192" height="1" uuid="373ee661-3f0c-4ddf-acd0-1dfe18f3f483"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="18" width="159" height="20" uuid="fd7c4e4a-58c4-4dd2-99b9-5b7eb187352a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Selamat Jalan Sampai Tujuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="0" width="100" height="20" uuid="4fc9901d-aad2-4706-8ef5-64d97117c8e8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Algerian"/>
+				</textElement>
+				<text><![CDATA[Terimakasih]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="34" splitType="Stretch"/>
+	</summary>
+</jasperReport>
